@@ -3,7 +3,7 @@
 
 # anvil's third default address
 sender := 0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a
-RPC_URL := http://localhost:8545
+RPC_URL := http://$(shell docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' deploy-anvil-node-1):3000
 
 # deploying the contract
 deploy:
